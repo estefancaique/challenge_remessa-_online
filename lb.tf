@@ -39,7 +39,7 @@ resource "aws_security_group" "nginx_sg" {
 resource "aws_lb" "nginx_lb" {
   name               = "nginx-lb"
   load_balancer_type = "application"
-  subnets            = "${module.networking.private_subnets_id[0]}"
+  subnets            = "${module.networking.public_subnets_id[0]}"
   security_groups    = ["${aws_security_group.nginx_sg.id}"]
   enable_deletion_protection = false
   enable_cross_zone_load_balancing = true

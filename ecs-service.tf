@@ -21,7 +21,7 @@ resource "aws_ecs_service" "nginx-service" {
 
   network_configuration {
     security_groups = [aws_security_group.nginx_sg.id]
-    subnets         = "${module.networking.private_subnets_id[0]}"
+    subnets         = "${module.networking.public_subnets_id[0]}"
     assign_public_ip = "true"
   }
 
